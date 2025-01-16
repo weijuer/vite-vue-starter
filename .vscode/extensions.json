@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "vue.volar",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "vscode-icons-team.vscode-icons",
+    "lokalise.i18n-ally"
+  ]
+}
