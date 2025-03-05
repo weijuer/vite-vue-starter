@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import legacy from '@vitejs/plugin-legacy';
 import compression from 'vite-plugin-compression';
 import zipPack from 'vite-plugin-zip-pack';
 import { name } from './package.json';
@@ -22,6 +23,7 @@ export default ({ mode }) => {
         plugins: [
             vue(),
             vueJsx(),
+            legacy(),
             compression({
                 verbose: true, // 是否在控制台输出压缩结果
                 disable: false, // 是否禁用 gzip 压缩
@@ -67,8 +69,8 @@ export default ({ mode }) => {
             },
         },
         esbuild: {
-          // 移除日志打印及debugger
-          drop: VITE_DROP_CONSOLE ? ['console', 'debugger'] : [],
+            // 移除日志打印及debugger
+            drop: VITE_DROP_CONSOLE === 'true' ? ['console', 'debugger'] : [],
         },
         // 依赖优化 - 预构建
         optimizeDeps: {

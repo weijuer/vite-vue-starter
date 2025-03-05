@@ -7,7 +7,7 @@ let messages = {};
 Object.keys(files).forEach((c) => {
     const module = files[c].default;
     const moduleName = c.replace(/^\.\/(.*)\/(.*)\.\w+$/, '$2');
-    messages[moduleName] = module;
+    messages[moduleName] = { ...messages[moduleName], ...module };
 });
 
 // 初次进入，采用浏览器当前设置的语言，默认采用中文

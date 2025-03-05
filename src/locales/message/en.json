@@ -1,4 +1,4 @@
 {
-  "welcome": "欢迎使用 Vue3 和 Vite6",
-  "hello": "你好，{name}！"
+    "welcome": "欢迎使用 Vue3 和 Vite6",
+    "hello": "你好，{name}！"
 }

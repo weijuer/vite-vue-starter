@@ -1,23 +1,23 @@
 <script setup>
-import { computed, useSlots } from 'vue'
+import { computed, useSlots } from 'vue';
 
 defineOptions({
-    name: "w-button"
-})
+    name: 'w-button',
+});
 
 const props = defineProps({
     type: {
         type: String,
-        dafault: 'default'
+        dafault: 'default',
     },
     size: String,
     icon: {
         type: [String, Boolean],
-        default: false
+        default: false,
     },
     attrType: {
         type: String,
-        default: 'button'
+        default: 'button',
     },
     flashed: Boolean,
     ringed: Boolean,
@@ -30,16 +30,16 @@ const props = defineProps({
     dashed: Boolean,
     round: Boolean,
     circle: Boolean,
-    iconOnly: Boolean
-})
+    iconOnly: Boolean,
+});
 
-const emit = defineEmits(['click'])
+const emit = defineEmits(['click']);
 
-const slots = useSlots()
+const slots = useSlots();
 
 const buttonClass = computed(() => {
-
-    const { type, icon, size, outlined, disabled, loading, light, round, ringed, flashed, dashed, circle, iconOnly } = props
+    const { type, icon, size, outlined, disabled, loading, light, round, ringed, flashed, dashed, circle, iconOnly } =
+        props;
 
     return [
         'w-button',
@@ -56,19 +56,18 @@ const buttonClass = computed(() => {
             'is-ringed': ringed,
             'is-flashed': flashed,
             'is-circle': circle,
-            'icon-only': iconOnly
-        }
-    ]
-})
+            'icon-only': iconOnly,
+        },
+    ];
+});
 
 const onClick = (event) => {
-    const { disabled, loading } = props
+    const { disabled, loading } = props;
 
     if (!disabled && !loading) {
-        emit('click', event)
+        emit('click', event);
     }
-}
-
+};
 </script>
 
 <template>
@@ -93,7 +92,9 @@ const onClick = (event) => {
     outline: none;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-    transition: outline-width 0.2s, transform 0.2s;
+    transition:
+        outline-width 0.2s,
+        transform 0.2s;
 
     &.is-round {
         border-radius: var(--radius-medium);
@@ -126,6 +127,5 @@ const onClick = (event) => {
     }
 
     // colors
-
 }
 </style>

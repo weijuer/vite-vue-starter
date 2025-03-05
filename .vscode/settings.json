@@ -1,0 +1,6 @@
+{
+    "editor.formatOnSave": true,
+    "i18n-ally.localesPaths": [
+        "src/locales/*"
+    ]
+}

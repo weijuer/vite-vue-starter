@@ -1,0 +1,25 @@
+{
+    "status": {
+        "unknown": "Unknown error",
+        "400": "Bad request",
+        "401": "Unauthorized",
+        "403": "Forbidden",
+        "404": "Not found",
+        "405": "Method not allowed",
+        "406": "Not acceptable",
+        "409": "Conflict",
+        "410": "Gone",
+        "411": "Length required",
+        "413": "Payload too large",
+        "415": "Unsupported media type",
+        "416": "Range not satisfiable",
+        "418": "I'm a teapot",
+        "429": "Too many requests",
+        "500": "Internal server error",
+        "501": "Not implemented",
+        "502": "Bad gateway",
+        "503": "Service unavailable",
+        "504": "Gateway timeout",
+        "505": "HTTP version not supported"
+    }
+}
