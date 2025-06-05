@@ -57,6 +57,7 @@ export default ({ mode }) => {
                 Views: resolve('src/views'),
                 Components: resolve('src/components'),
                 Layouts: resolve('src/components/layouts'),
+                Icons: resolve('src/components/icons'),
                 Widgets: resolve('src/components/widgets'),
                 Style: resolve('src/style'),
             },

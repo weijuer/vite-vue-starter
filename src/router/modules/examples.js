@@ -19,6 +19,11 @@ export default [
                 name: 'examples-pinia',
                 component: () => import('@/views/examples/Pinia.vue'),
             },
+            {
+                path: '/countdown',
+                name: 'examples-countdown',
+                component: () => import('@/views/examples/Countdown.vue'),
+            },
         ],
     },
 ];

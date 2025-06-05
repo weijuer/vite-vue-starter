@@ -30,9 +30,10 @@
 
             <!-- Right sidebar -->
             <nav class="holy-grail__right">
-                <ul>
+                <ul class="sidebar-nav">
                     <li><router-link to="/todo">Todo</router-link></li>
                     <li><router-link to="/pinia">Pinia</router-link></li>
+                    <li><router-link to="/countdown">Countdown</router-link></li>
                 </ul>
             </nav>
         </main>
@@ -43,6 +44,73 @@
         </footer>
     </div>
 </template>
+
+<style>
+/* .sidebar-nav {
+    li:not(:last-child) {
+        a {
+            view-transition-name: auto;
+        }
+    }
+}
+
+::view-transition-old(posts-nav) {
+    animation: fade 0.2s linear forwards;
+    height: 100%;
+}
+
+::view-transition-new(posts-nav) {
+    animation: fade 0.3s linear reverse;
+    height: 100%;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+} */
+
+/* @keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slide-from-right {
+    from {
+        transform: translateX(30px);
+    }
+}
+
+@keyframes slide-to-left {
+    to {
+        transform: translateX(-30px);
+    }
+}
+
+::view-transition-old(root) {
+    animation:
+        90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+        300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+
+::view-transition-new(root) {
+    animation:
+        210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+        300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+} */
+</style>
 
 <style scoped lang="less">
 .holy-grail {

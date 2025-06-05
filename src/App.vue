@@ -7,3 +7,9 @@
         </transition>
     </router-view>
 </template>
+
+<style>
+:root {
+    view-transition-name: none;
+}
+</style>
