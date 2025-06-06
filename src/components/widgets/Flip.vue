@@ -1,6 +1,6 @@
 <template>
-    <div class="flip-card">
-        <div class="flip-card--face flip-card--face-front">
+    <div class="flip-page">
+        <!-- <div class="flip-card--face flip-card--face-front">
             <slot name="front">{{ value - 1 }}</slot>
         </div>
         <div class="flip-card--face flip-card--face-back">
@@ -12,6 +12,26 @@
         </div>
         <div class="flip-card--face flip-card--face-back">
             <slot name="back">{{ value }}</slot>
+        </div> -->
+
+        <!-- 后页 -->
+        <div class="flip">
+            <div class="flip-card">
+                <slot name="back">{{ value - 1 }}</slot>
+            </div>
+            <div class="flip-card">
+                <slot name="back">{{ value - 1 }}</slot>
+            </div>
+        </div>
+
+        <!-- 前页 -->
+        <div class="flip">
+            <div class="flip-card" :class="{ 'flip-animation': animating }">
+                <slot name="front">{{ value }}</slot>
+            </div>
+            <div class="flip-card">
+                <slot name="front">{{ value }}</slot>
+            </div>
         </div>
     </div>
 </template>
@@ -29,8 +49,22 @@ defineProps({
 });
 </script>
 
-<style scoped>
-.flip-card {
+<style lang="less" scoped>
+.flip-page {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+
+    .flip {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        transform-style: preserve-3d;
+    }
+}
+
+.flip {
     width: 100%;
     height: 100%;
     display: inline-block;
@@ -38,6 +72,7 @@ defineProps({
     text-align: center;
     position: relative;
     transform-style: preserve-3d;
+    perspective: 1000px;
 
     &::before,
     &::after {
@@ -57,46 +92,46 @@ defineProps({
     &::after {
         right: 0;
     }
-}
 
-.flip-card--face {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    transform-style: preserve-3d;
-    background: radial-gradient(100% 100% at 50% 100%, light-dark(hsl(0 0% 88% / 0.2), hsl(0 0% 60% / 0.2)), #0000),
-        light-dark(hsl(0 0% 92%), hsl(0 0% 15%));
+    .flip-card {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        transform-style: preserve-3d;
+        background: radial-gradient(100% 100% at 50% 100%, light-dark(hsl(0 0% 88% / 0.2), hsl(0 0% 60% / 0.2)), #0000),
+            light-dark(hsl(0 0% 92%), hsl(0 0% 15%));
 
-    &:nth-of-type(odd) {
-        filter: brightness(1);
+        &:nth-of-type(odd) {
+            filter: brightness(1);
 
-        clip-path: polygon(
-            0 0,
-            100% 0,
-            100% 40%,
-            calc(90% + 0.025em) 40%,
-            calc(90% + 0.025em) 48%,
-            calc(10% - 0.025em) 48%,
-            calc(10% - 0.025em) 40%,
-            0 40%
-        );
-    }
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                100% 40%,
+                calc(90% + 0.025em) 40%,
+                calc(90% + 0.025em) 48%,
+                calc(10% - 0.025em) 48%,
+                calc(10% - 0.025em) 40%,
+                0 40%
+            );
+        }
 
-    &:nth-of-type(even) {
-        z-index: 2;
-        rotate: x 0deg;
-        backface-visibility: hidden;
+        &:nth-of-type(even) {
+            z-index: 2;
+            rotate: x 0deg;
+            backface-visibility: hidden;
 
-        clip-path: polygon(
-            0 60%,
-            calc(10% - 0.025em) 60%,
-            calc(10% - 0.025em) 52%,
-            calc(90% + 0.025em) 52%,
-            calc(90% + 0.025em) 60%,
-            100% 60%,
-            100% 100%,
-            0 100%
-        );
+            clip-path: polygon(
+                0 60%,
+                calc(10% - 0.025em) 60%,
+                calc(10% - 0.025em) 52%,
+                calc(90% + 0.025em) 52%,
+                calc(90% + 0.025em) 60%,
+                100% 60%,
+                100% 100%,
+                0 100%
+            );
+        }
     }
 }
 
